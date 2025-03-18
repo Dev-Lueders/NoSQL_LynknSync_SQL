@@ -1,0 +1,69 @@
+User Instructions for auto_commit.ps1
+
+Purpose
+This PowerShell script automates Git commits by maintaining a commit count, appending timestamps, and ensuring auto_commit.ps1 is ignored in .gitignore. It also prompts the user to select a commit name if it's the first time running.
+
+Setup & First-Time Use
+1. Ensure Git is Installed
+Before running this script, make sure Git is installed and configured on your system.
+
+To check, run:
+
+git --version
+
+2. Navigate to the Repository
+Ensure you are in the correct Git repository where you want to run the script. Use:
+cd path\to\your\repo
+
+3. Run the Script
+Execute the script using:
+./auto_commit.ps1
+
+Script Behavior & Execution Steps
+
+Scenario 1: First-Time Setup (No commit_count.txt Found)
+
+The script detects that commit_count.txt is missing.
+
+It prompts you to select a name for your commit messages:
+1 for GitHub Username
+2 for Windows Username
+3 to enter your initials manually
+
+A new commit_count.txt file is created with the selected name and an initial commit count of 0.
+You will need to rerun the script to proceed with the first commit.
+
+Scenario 2: Normal Execution (After commit_count.txt Exists)
+The script verifies that commit_count.txt contains valid data.
+It checks if auto_commit.ps1 is already in .gitignore and adds it if necessary.
+It reads the stored username and commit count.
+It prompts for a custom commit message.
+The commit message format is:
+php-template
+
+#<commit_number> - <custom_message> - <timestamp> - (Committed by: <username>)
+
+The script automatically stages, commits, and pushes changes to the current branch.
+
+Handling Errors
+Issue: Cannot index into a null array
+This occurs if commit_count.txt is empty or missing required data.
+The script automatically resets the file if corruption is detected. 
+***Your commits are still in GitHub if the file is corrupt
+To continue where you left off for commit count, check your GitHub repository and add the latest to your 2nd line in commit_count.txt
+
+Issue: auto_commit.ps1 is already in .gitignore
+This is an informational message. If it appears, no action is needed.
+
+Manually Editing commit_count.txt
+If you want to change the stored username:
+
+Open commit_count.txt in a text editor.
+Modify the first line with your preferred name.
+Save the file.
+
+# First Run (Sets up commit_count.txt)
+./auto_commit.ps1
+
+# Rerun to commit changes
+./auto_commit.ps1
