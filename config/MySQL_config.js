@@ -1,4 +1,4 @@
-const mysql = require("mysql2";
+const mysql2 = require("mysql2");
 
     const connection = mysql.createConnection({
         host:"127.0.0.1",
@@ -14,4 +14,3 @@ const mysql = require("mysql2";
         }
         console.log("Connection successful to MySQL for LynknSync");
     });
-)
