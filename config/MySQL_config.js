@@ -5,7 +5,7 @@ const mysql2 = require("mysql2");
         user:"root",
         password:"root",
         database: "MySQL_LynknSync",
-        port: 3307,
+        port: 3306,
     })
     connection.connect((err) =>{
         if (err) {

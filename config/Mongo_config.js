@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const fs = require("fs");
 mongoose
-    .connect("mongodb://localhost:27018/MongoDb_LynknSync")
+    .connect("mongodb://localhost:27017/MongoDb_LynknSync")
     .then(()=>{
         console.log("Initializing MONGO DB for LynknSync");
         

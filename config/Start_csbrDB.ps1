@@ -1,6 +1,6 @@
 # Defining the Ports
-$mongodbPort = 27018
-$mysqlPort = 3307
+$mongodbPort = 27017
+$mysqlPort = 3306
 
 # Defining MongoDB and MySQL process names
 $mongodbProcessName = "mongod"
@@ -8,11 +8,11 @@ $mysqlProcessName = "mysqld"
 
 # Defining the path to MongoDB executable and config file
 $mongodbPath = "C:\Program Files\MongoDB\Server\8.0\bin\mongod.exe"
-$mongodbConfigPath = "C:\Users\Nicho\OneDrive\Desktop\perosnal Projects\NoSQL_LynknSync_SQL\mongod.cfg"
+$mongodbConfigPath = "C:\Users\Nicho\OneDrive\Desktop\personal Projects\NoSQL_LynknSync_SQL\mongod.cfg"
 
 # Defining the path to MySQL executable and config file
 $mysqlPath = "C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe"
-$mysqlConfigPath = "C:\Users\Nicho\OneDrive\Desktop\Perosnal Projects\NoSQL_LynknSync_SQL\config\my.cnf"
+$mysqlConfigPath = "C:\Users\Nicho\OneDrive\Desktop\Personal Projects\NoSQL_LynknSync_SQL\config\mySQL_config.js"
 
 # Checking if services are running on the specified Port
 function isITon {
@@ -54,7 +54,7 @@ function isITon {
 }
 
 # Starting MongoDB with specialized config file
-Write-Host "Starting MongoDB on Port 27018.."
+Write-Host "Starting MongoDB on Port 27017.."
 Write-Host "Using different Config file"
 Start-Process $mongodbPath -ArgumentList "--config $mongodbConfigPath"
 
